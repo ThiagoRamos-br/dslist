@@ -16,24 +16,30 @@ public class Game {
     @Column(name = "game_year") // modifica o name do atributo la no campo para que não ocorra nenhum problema
     private Integer year;
     private String genre;
-    private String platform;
+    private String platforms;
+    private Double score;
     private String imgUrl;
+
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
-    public Game (String genre){
-        this.genre = genre;
+    public Game () {
+
     }
 
-    public Game(String longDescription, String shortDescription, String imgUrl, String platform, Integer year, String title, long id, String genre) {
-        this.longDescription = longDescription;
-        this.shortDescription = shortDescription;
-        this.imgUrl = imgUrl;
-        this.platform = platform;
-        this.year = year;
-        this.title = title;
+    public Game(long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
+        this.title = title;
+        this.year = year;
         this.genre = genre;
+        this.platforms = platforms;
+        this.score = score;
+        this.imgUrl = imgUrl;
+        this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
     }
 
     public long getId() {
@@ -61,11 +67,11 @@ public class Game {
     }
 
     public String getPlatform() {
-        return platform;
+        return platforms;
     }
 
     public void setPlatform(String platform) {
-        this.platform = platform;
+        this.platforms = platform;
     }
 
     public String getImgUrl() {
@@ -99,6 +105,10 @@ public class Game {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
+    public Double getScore() {return score;}
+
+    public void setScore(Double score) { this.score = score;}
 
     @Override
     public boolean equals(Object o) {
