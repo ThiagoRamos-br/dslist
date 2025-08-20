@@ -8,8 +8,8 @@ import java.util.Objects;
 @Table(name = "tb_game")
 public class Game {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // transformar em chave primaria
+    @Id // transformar em chave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY)// ele diz ao JPA que esse atributo sera gerado automaticamente pelo banco de dados
     private long id;
     private String title;
 
